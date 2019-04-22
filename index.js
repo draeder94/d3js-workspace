@@ -10,7 +10,6 @@ function setAnalyserValues() {
 	document.getElementById("eq_buffer_label").innerHTML = `Bandwith: ${val}`;
 }
 setAnalyserValues();
-console.log("maxDeb: "+analyser.maxDecibels);
 
 eq_buffer_slider.onchange = (event) => {
 	setAnalyserValues();
@@ -23,8 +22,8 @@ eq_deb_slider.onchange = (event) => {
 };
 
 
-const eq_width = 1600;
-const eq_height = 800;
+const eq_width = 640;
+const eq_height = 320;
 const eq_width_bar = () => eq_width / buffer_length;
 const value_array = new Uint8Array(256);
 const eq_bars = () => d3.select("#eq").selectAll("rect").data(value_array);
