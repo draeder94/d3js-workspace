@@ -3,12 +3,14 @@ const eq_deb_slider = document.getElementById("eq_deb_slider");
 const audio_context = new (window.AudioContext || window.webkitAudioContext)();
 const analyser = audio_context.createAnalyser();
 let buffer_length;
+
 function setAnalyserValues() {
-	let val = 2 << (2+eq_buffer_slider.valueAsNumber);
-	analyser.fftSize = val*2;
+	let val = 2 << (2 + eq_buffer_slider.valueAsNumber);
+	analyser.fftSize = val * 2;
 	buffer_length = analyser.frequencyBinCount;
 	document.getElementById("eq_buffer_label").innerHTML = `Bandwith: ${val}`;
 }
+
 setAnalyserValues();
 
 eq_buffer_slider.onchange = (event) => {
@@ -21,6 +23,13 @@ eq_deb_slider.onchange = (event) => {
 	document.getElementById("eq_deb_label").innerHTML = `Sensitivity: ${val} dB`;
 };
 
+const button_play = document.getElementById("play");
+button_play.addEventListener("click",
+	() => audio_context.resume().then(
+		() => button_play.style.visibility = "hidden"
+	)
+);
+
 
 const eq_width = 640;
 const eq_height = 320;
@@ -32,8 +41,8 @@ eq_bars().enter()
 	.style("stroke", "green").style("fill", "lightgreen")
 	.attr("x", (p, i) => i * eq_width_bar())
 	.attr("width", eq_width_bar())
-	.attr("y", (b, i) => eq_height - eq_height * b/255)
-	.attr("height", (b, i) => eq_height * b/255);
+	.attr("y", (b, i) => eq_height - eq_height * b / 255)
+	.attr("height", (b, i) => eq_height * b / 255);
 
 navigator.mediaDevices.getUserMedia({audio: true}).then(s => {
 	audio_context.createMediaStreamSource(s).connect(analyser);
@@ -47,7 +56,7 @@ function updateVisuals() {
 		.duration(100)
 		.attr("x", (p, i) => i * eq_width_bar())
 		.attr("width", eq_width_bar())
-		.attr("height", (b, i) => eq_height * b/255)
-		.attr("y", (b, i) => eq_height - eq_height * b/255);
+		.attr("height", (b, i) => eq_height * b / 255)
+		.attr("y", (b, i) => eq_height - eq_height * b / 255);
 }
 

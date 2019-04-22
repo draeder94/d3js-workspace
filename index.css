@@ -24,6 +24,17 @@ input[type=range][orient=vertical] {
   grid-column: 1 / span 2;
   margin: auto;
 }
+#eq_container #play {
+  box-sizing: border-box;
+  width: 74px;
+  height: 74px;
+  border-width: 37px 0 37px 74px;
+  border-color: transparent transparent transparent #dddddd;
+  background-color: transparent;
+  margin: auto;
+  grid-row: 1;
+  grid-column: 1 / span 2;
+}
 #eq_container #eq_buffer_slider {
   width: 100%;
   grid-row: 2;
