@@ -1,0 +1,51 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+input[type=range][orient=vertical] {
+  writing-mode: bt-lr; /* IE */
+  -webkit-appearance: slider-vertical; /* WebKit */
+}
+
+#eq_container {
+  width: 2000px;
+  height: 1000px;
+  display: grid;
+  grid-template-rows: 800px 1fr;
+  grid-template-columns: 1fr 1fr 50px;
+
+  #eq {
+    background: black;
+    grid-row: 1;
+    grid-column: 1 / span 2;
+    margin: auto;
+  }
+
+  #eq_buffer_slider {
+    width: 100%;
+    grid-row: 2;
+    grid-column: 2;
+  }
+  #eq_buffer_label {
+    width: 100%;
+    grid-row: 2;
+    grid-column: 1;
+    font-size: 80pt;
+    margin: auto;
+  }
+
+  #eq_deb_slider {
+    width: 8px;
+    height: 800px;
+    padding: 0 5px;
+    grid-row: 1;
+    grid-column: 3;
+    margin-left: -50px;
+  }
+  #eq_deb_label {
+    font-size: 40pt;
+    margin-top: -450px;
+    margin-left: 20px;
+  }
+}

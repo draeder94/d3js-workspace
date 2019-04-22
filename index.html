@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title>d3js Testing</title>
+        <link rel="stylesheet" href="index.css">
+		<script src="https://d3js.org/d3.v5.js"></script>
+    </head>
+
+   <body>
+
+    <div id="eq_container">
+        <svg id="eq" width="1600px" height="800px"></svg>
+
+        <input id="eq_buffer_slider" type="range" min="1" max="5" value="2">
+        <span id="eq_buffer_label"></span>
+
+        <input id="eq_deb_slider" type="range" min="-90" max="0" value="-30" orient="vertical">
+        <span id="eq_deb_label">Sensitivity: -30 dB</span>
+    </div>
+
+    <script src="./index.js"></script>
+   </body>
+
+</html>
